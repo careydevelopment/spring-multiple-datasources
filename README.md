@@ -1,7 +1,7 @@
 # spring-multiple-datasources
 This project includes a fully deployable Spring Boot app that uses multiple data sources.
 
-It accepts a single POST call that includes customer info. Then, it persists that info and returns a new Customer object with the ID of the persisted data.
+The app accepts a single POST call that includes customer info. Then, it persists that info and returns a new Customer object with the ID of the persisted data.
 
 If you want to know more, you should follow along with <a href="https://careydevelopment.us/2019/01/18/how-to-configure-multiple-data-sources-spring-boot/" target="_blank">the tutorial.</a>
 
