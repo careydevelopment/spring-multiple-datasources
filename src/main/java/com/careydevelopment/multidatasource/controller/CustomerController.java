@@ -19,14 +19,14 @@ public class CustomerController {
 	@Autowired
 	MultiTenantManager multiTenantManager;
 	
-    @PostMapping("/app/{tenantId}/customer") 
-    public Customer createCustomer(@PathVariable String tenantId, @RequestBody Customer customer) {
-    	//set the correct database
-    	multiTenantManager.setCurrentTenant(tenantId);
+	@PostMapping("/app/{tenantId}/customer") 
+	public Customer createCustomer(@PathVariable String tenantId, @RequestBody Customer customer) {
+		//set the correct database
+		multiTenantManager.setCurrentTenant(tenantId);
     	
-    	//persist the customer
-    	customer = customerRepository.save(customer);
+		//persist the customer
+		customer = customerRepository.save(customer);
     	
-    	return customer;
-    }
+		return customer;
+	}
 }
