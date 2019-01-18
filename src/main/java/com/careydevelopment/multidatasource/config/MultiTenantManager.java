@@ -23,15 +23,11 @@ public class MultiTenantManager implements ApplicationListener<ContextRefreshedE
 	private static final Logger logger = LoggerFactory.getLogger(MultiTenantManager.class);
 	
 	private final Map<Object, Object> tenantDataSources = new ConcurrentHashMap<>();
-	private final DataSourceProperties properties;
 	
 	@Autowired
 	private AppRoutingDataSource routingDataSource;
 	
-	public MultiTenantManager(DataSourceProperties properties) {
-		this.properties = properties;
-	}
-	
+
 	public void setCurrentTenant(String tenantId)  {
 		if (tenantIsAbsent(tenantId)) {
 			throw new RuntimeException("No tenant with ID " + tenantId);
@@ -44,7 +40,7 @@ public class MultiTenantManager implements ApplicationListener<ContextRefreshedE
 	
 	public void addTenant(String tenantId, String url, String username, String password) throws SQLException {
 		DataSource dataSource = DataSourceBuilder.create()
-				.driverClassName(properties.getDriverClassName())
+				.driverClassName("com.mysql.cj.jdbc.Driver")
 				.url(url)
 				.username(username)
 				.password(password)
