@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.careydevelopment</groupId>
 	<artifactId>spring-multiple-datasources</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>spring-multiple-datasources</name>
 
 	<parent>
