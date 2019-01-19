@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -69,13 +68,13 @@ public class MultiTenantManager implements ApplicationListener<ContextRefreshedE
 		return tenantDataSources.keySet();
 	}	
 	
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
-        try {
-        	addTenant("fishingsupplies", "jdbc:mysql://myhost.com:3306/fishingsupplies", "bubba", "password");
-        	addTenant("gadgetwarehouse", "jdbc:mysql://myhost.com:3306/gadgetwarehouse", "bubba", "password");
-        } catch (Exception e ) {
-        	e.printStackTrace();
-        }
-    }
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		try {
+			addTenant("fishingsupplies", "jdbc:mysql://myhost.com:3306/fishingsupplies", "bubba", "password");
+			addTenant("gadgetwarehouse", "jdbc:mysql://myhost.com:3306/gadgetwarehouse", "bubba", "password");
+		} catch (Exception e ) {
+			e.printStackTrace();
+		}
+	}
 }
